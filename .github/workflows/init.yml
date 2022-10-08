@@ -21,7 +21,7 @@ jobs:
           deno-version: v1.x
           
       - name: Setup fresh
-        run: deno run -A -r https://fresh.deno.dev src
+        run: deno run -A -r https://fresh.deno.dev src --twind
         
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v4
