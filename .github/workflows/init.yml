@@ -1,0 +1,32 @@
+name: Init fresh
+
+on: workflow_dispatch
+      
+jobs:
+  initFresh:
+  
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    
+    steps:
+    
+      - name: Setup repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+    
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+          
+      - name: Setup fresh
+        run: deno run -A -r https://fresh.deno.dev src
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: init fresh
+          title: Init fresh
+          body: Initialize fresh
+          branch: init
