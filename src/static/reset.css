@@ -1,0 +1,22 @@
+*, *::before, *::after {
+    all: unset;
+}
+
+head, meta, title, link, style, script {
+    display: none;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    display: flex;
+    border-width: 0;
+    border-style: solid;
+}
+
+html {
+    min-block-size: 100%;
+}
+
+body {
+    flex: 1;
+}
